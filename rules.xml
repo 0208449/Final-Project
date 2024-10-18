@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<ruleset name="Testability Focused Ruleset"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+    <description>
+        This ruleset targets common programming flaws that potentially affect the testability of Java code, such as complexity, poor handling of resources, and problematic error management.
+    </description>
+
+
+    <!-- God Class: Large classes with high complexity might be hard to instantiate and mock in tests -->
+    <rule ref="category/java/design.xml/GodClass"/>
+
+    <!-- Data Class: Classes that don't encapsulate state well may require more elaborate setup in tests -->
+    <rule ref="category/java/design.xml/DataClass"/>
+
+    <!-- Law of Demeter: Violations might complicate unit tests by requiring knowledge of object relationships -->
+    <rule ref="category/java/design.xml/LawOfDemeter"/>
+
+    <!-- Excessive Public Methods: High number of methods can increase the testing surface unnecessarily -->
+    <rule ref="category/java/design.xml/ExcessivePublicCount"/>
+
+    <!-- Empty Catch Blocks: Can hide exceptions during testing, leading to incomplete tests -->
+    <rule ref="category/java/errorprone.xml/EmptyCatchBlock"/>
+
+    <!-- Unused Local Variables: Indicates sloppy coding that can confuse maintainability and readability -->
+    <rule ref="category/java/bestpractices.xml/UnusedLocalVariable"/>
+
+</ruleset>
